@@ -13,12 +13,15 @@ import java.util.Set;
 @AllArgsConstructor
 //@NoArgsConstructor
 public class UserDTO {
-//    public static final String SESSION_USER_KEY = "_user";
     private String id;
     private String username;
     private String password;
     private String fullname;
     private String mobile;
+    /**
+     * session中存放登录用户信息的key
+     */
+    public static final String SESSION_USER_KEY = "_user";
     /**
      * 用户权限
      */
