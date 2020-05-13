@@ -1,5 +1,6 @@
 package com.muqing.config;
 
+import com.muqing.interceptor.SimpleAuthenticationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,8 +23,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
-//    @Autowired
-//    SimpleAuthenticationInterceptor simpleAuthenticationInterceptor;
+    @Autowired
+    SimpleAuthenticationInterceptor simpleAuthenticationInterceptor;
 
     //视图解析器
     @Bean
@@ -39,8 +40,9 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("login");
     }
 
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(simpleAuthenticationInterceptor).addPathPatterns("/r/**");
-//    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        //匹配/r/**的资源为受保护的系统资源，访问该资源的请求进入SimpleAuthenticationInterceptor拦截器。
+        registry.addInterceptor(simpleAuthenticationInterceptor).addPathPatterns("/r/**");
+    }
 }

@@ -18,8 +18,9 @@ public class LoginController {
 
     /**
      * 用户登录
+     *
      * @param authenticationRequest 登录请求
-     * @param session http会话
+     * @param session               http会话
      * @return
      */
     @PostMapping(value = "/login", produces = "text/plain;charset=utf-8")//produces属性可以设置返回数据的类型以及编码-> 解决中文乱码
@@ -32,6 +33,7 @@ public class LoginController {
 
     /**
      * 用户登出
+     *
      * @param session http会话
      * @return
      */
@@ -45,25 +47,25 @@ public class LoginController {
     @GetMapping(value = "/r/r1", produces = "text/plain;charset=utf-8")
     public String r1(HttpSession session) {
         String fullname = null;
-        Object userObiect = session.getAttribute(UserDTO.SESSION_USER_KEY);
-        if (userObiect == null) {
-            fullname = "匿名";
+        Object userObj = session.getAttribute(UserDTO.SESSION_USER_KEY);
+        if (userObj != null) {
+            fullname = ((UserDTO) userObj).getFullname();
         } else {
-            UserDTO userDTO = (UserDTO) userObiect;
-            fullname = userDTO.getFullname();
+            fullname = "匿名";
         }
         return fullname + " 访问资源r1";
     }
 
-//    @GetMapping(value = "/r/r2", produces = {"text/plain;charset=UTF-8"})
-//    public String r2(HttpSession session) {
-//        String fullname = null;
-//        Object userObj = session.getAttribute(UserDto.SESSION_USER_KEY);
-//        if (userObj != null) {
-//            fullname = ((UserDto) userObj).getFullname();
-//        } else {
-//            fullname = "匿名";
-//        }
-//        return fullname + " 访问资源2";
-//    }
+    //测试资源2
+    @GetMapping(value = "/r/r2", produces = {"text/plain;charset=UTF-8"})
+    public String r2(HttpSession session) {
+        String fullname = null;
+        Object userObj = session.getAttribute(UserDTO.SESSION_USER_KEY);
+        if (userObj != null) {
+            fullname = ((UserDTO) userObj).getFullname();
+        } else {
+            fullname = "匿名";
+        }
+        return fullname + " 访问资源r2";
+    }
 }
