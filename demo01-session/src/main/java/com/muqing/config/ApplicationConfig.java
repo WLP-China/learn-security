@@ -6,6 +6,7 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
 
 /**
+ * Spring容器配置
  * 相当于application-context.xml
  */
 @Configuration

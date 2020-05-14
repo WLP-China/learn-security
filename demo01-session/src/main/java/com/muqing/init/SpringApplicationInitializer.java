@@ -5,7 +5,7 @@ import com.muqing.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
- * Spring容器初始化类,相当于web.xml,使用了servlet3.0开发则不需要再定义web.xml
+ * 加载 Spring容器,Spring容器初始化类,相当于web.xml,使用了servlet3.0开发则不需要再定义web.xml
  * （此类实现WebApplicationInitializer接口，Spring容器启动时加载WebApplicationInitializer接口的所有实现类）
  */
 public class SpringApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

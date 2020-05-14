@@ -24,7 +24,7 @@ public class SimpleAuthenticationInterceptor implements HandlerInterceptor {
         Object object = request.getSession().getAttribute(UserDTO.SESSION_USER_KEY);
         if (object == null) {
             writeContent(response, "请登录");//没有认证，提示登录
-        }else {
+        } else {
             UserDTO userDTO = (UserDTO) object;
             String requestURI = request.getRequestURI();//请求的url
             if (userDTO.getAuthorities().contains("p1") && requestURI.contains("/r/r1")) {
@@ -33,8 +33,8 @@ public class SimpleAuthenticationInterceptor implements HandlerInterceptor {
             if (userDTO.getAuthorities().contains("p2") && requestURI.contains("/r/r2")) {
                 return true;
             }
+            writeContent(response, "没有权限，拒绝访问");
         }
-        writeContent(response, "没有权限，拒绝访问");
         return false;
     }
 

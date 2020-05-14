@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
+ * Servlet Context配置
  * 相当于springmvc.xml 对应于DispatcherServlet配置
  */
 @Configuration
