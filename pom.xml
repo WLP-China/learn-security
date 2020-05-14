@@ -12,5 +12,6 @@
     <modules>
         <module>demo01-session</module>
         <module>demo02-springSecurity</module>
+        <module>demo03-springSecurity-springboot</module>
     </modules>
 </project>
