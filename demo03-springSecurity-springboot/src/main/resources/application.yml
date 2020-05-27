@@ -2,6 +2,8 @@ server:
   port: 8080
   servlet:
     context-path: /demo03-springSecurity-springboot
+    session:
+      timeout: 3600s
 
 spring:
   application:
